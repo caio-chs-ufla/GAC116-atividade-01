@@ -20,13 +20,10 @@ class Game {
 
     this.snake.move();
 
-    // colisão com parede
     if (this.snake.hitWall(this.canvas)) this.end();
 
-    // colisão com ele mesmo
     if (this.snake.hitSelf()) this.end();
 
-    // colisão com blocos
     if (
       this.blocks.some(
         (b) => b.x === this.snake.head.x && b.y === this.snake.head.y
@@ -34,7 +31,6 @@ class Game {
     )
       this.end();
 
-    // comer maçã
     if (
       this.snake.head.x === this.apple.x &&
       this.snake.head.y === this.apple.y
@@ -163,7 +159,6 @@ class Block {
   }
 }
 
-// CONTROLES
 const game = new Game();
 
 document.addEventListener("keydown", (e) => {
@@ -183,7 +178,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// START + COUNTDOWN
 const startBtn = document.getElementById("startBtn");
 startBtn.addEventListener("click", () => {
   let count = 3;
